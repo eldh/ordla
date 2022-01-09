@@ -132,9 +132,18 @@ function Share({ tries, word }: { word: string; tries: string[] }) {
     .map((t) =>
       t
         .split("")
-        .map((l, i) =>
-          word.indexOf(l) === -1 ? "⬛" : word[i] === l ? "🟩" : "🟨"
-        )
+        .map((l, i) => {
+          const isMiss = word.indexOf(l) === -1;
+          const isHit = word[i] === l;
+          const hitIsElsewhere =
+            !isHit &&
+            t
+              ?.split("")
+              .filter((l2, i) => word[i] === l2)
+              .includes(l);
+          const isClose = !isHit;
+          return isMiss || hitIsElsewhere ? "⬛" : isHit ? "🟩" : "🟨";
+        })
         .join("")
     )
     .join("\n");
