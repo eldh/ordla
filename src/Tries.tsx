@@ -19,6 +19,7 @@ export function Tries(props: {
             return (
               <Square
                 index={j}
+                guess={[...tries, currentTry][i]}
                 isCurrentTry={i >= tries.length}
                 word={word}
                 letter={letter}
