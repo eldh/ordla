@@ -53,6 +53,9 @@ export function App() {
       if (key === "Backspace") {
         setCurrentTry((v) => v.substring(0, v.length - 1));
       } else if (key === "Enter") {
+        if (hasWon) {
+          setShowModal(true);
+        }
         const isAWord =
           currentTry.length === 5 && words.indexOf(currentTry) > -1;
         if (isAWord) {

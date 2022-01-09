@@ -25,10 +25,7 @@ export function SummaryModal({
   const maxWins = Math.max(...guessDistribution);
   return (
     <>
-      <div
-        className={"modal center gap-l " + className}
-        style={{ width: "calc(100% - 24px)" }}
-      >
+      <div className={"modal center gap-l " + className}>
         <div role="button" tabIndex={0} onClick={onClose} className="close-btn">
           ⨯
         </div>
