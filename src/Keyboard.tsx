@@ -90,15 +90,7 @@ export function Key(props: {
           {"←"}
         </span>
       ) : key_ === "Enter" ? (
-        <span
-          style={{
-            fontFamily: "monospace",
-            fontSize: "1.5rem",
-            lineHeight: "1.375rem",
-          }}
-        >
-          {"↩"}
-        </span>
+        <span style={{ textTransform: "capitalize" }}>{"Enter"}</span>
       ) : (
         key_
       )}
