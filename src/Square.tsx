@@ -7,8 +7,14 @@ export function Square(props: {
 }) {
   const { index, letter, word, isCurrentTry, guess } = props;
   const hit = !isCurrentTry && word[index] === letter;
+
   const letterIsHitElsewhere =
-    !isCurrentTry && !hit && guess?.split("").find((l2, i) => word[i] === l2);
+    !isCurrentTry &&
+    !hit &&
+    guess
+      ?.split("")
+      .filter((l2, i) => word[i] === l2)
+      .includes(letter);
   const almost =
     !letterIsHitElsewhere && !isCurrentTry && !hit && word.indexOf(letter) > -1;
   return (
