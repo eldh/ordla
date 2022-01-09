@@ -6,10 +6,10 @@
   --letter-bg--hit: rgba(0 178 0);
   --bar-color: rgba(0 150 0);
   --letter-bg--almost: rgb(161, 121, 10);
-  --letter-text: rgba(255 255 255 / 0.8);
+  --letter-text: rgba(255 255 255 / 0.9);
 
   --btn-bg: linear-gradient(180deg, rgba(48 60 67), rgba(37 49 56));
-  --btn-text: rgba(255 255 255 / 0.8);
+  --btn-text: rgba(255 255 255 / 0.9);
   --btn-bg--miss: linear-gradient(180deg, rgba(27 39 45), rgba(16 28 34));
   --btn-bg--hit: linear-gradient(180deg, rgba(0 178 0), rgba(0 150 0));
   --btn-bg--almost: linear-gradient(180deg, rgba(173 146 0), rgba(144 120 0));
