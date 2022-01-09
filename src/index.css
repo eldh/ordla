@@ -17,8 +17,8 @@
   --color-quiet: rgba(255 255 255 / 0.7);
   --modal-bg: linear-gradient(
     180deg,
-    rgba(37 49 56 / 0.8),
-    rgba(16 28 34 / 0.8)
+    rgba(37 49 56 / 0.7),
+    rgba(16 28 34 / 0.7)
   );
   --shadow-l: 0 5px 50px 25px rgba(0 0 0 / 0.6);
   --shadow-modal: 0 5px 15px rgba(0 0 0 / 0.9);
@@ -197,8 +197,8 @@ p {
   transform: translate(-50%, -50%);
   z-index: 100;
   background: var(--modal-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   padding: 24px;
   width: 500px;
   max-width: calc(100vw - 24px);
@@ -302,8 +302,8 @@ p {
     --letter-bg: rgb(193, 197, 201);
     --modal-bg: linear-gradient(
       180deg,
-      rgb(240 240 240 / 0.85),
-      rgb(200 200 200 / 0.85)
+      rgb(240 240 240 / 0.65),
+      rgb(200 200 200 / 0.65)
     );
     --letter-bg--hit: rgb(100, 235, 79);
     --bar-color: rgb(91, 228, 70);
