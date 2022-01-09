@@ -3,7 +3,7 @@ import { Fade } from "./Fade";
 import { Square } from "./Square";
 import { usePersistedState } from "./usePersistedState";
 
-export function Help({}: { className: string }) {
+export function Help({}: {}) {
   const [help, setHelp] = useState(false);
   return (
     <>
