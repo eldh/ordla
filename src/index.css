@@ -200,7 +200,8 @@ p {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 24px;
-  max-width: 500px;
+  width: 500px;
+  max-width: calc(100vw - 24px);
   border-radius: 10px;
   box-shadow: var(--shadow-modal), 0 1px 0 rgba(255, 255, 255, 0.15) inset,
     0 -1px 0 rgba(0, 0, 0, 0.4) inset;
