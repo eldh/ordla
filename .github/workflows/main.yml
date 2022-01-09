@@ -30,7 +30,7 @@ jobs:
           cmd: install # will run `yarn install` command
       - uses: borales/actions-yarn@v2.3.0
         with:
-          cmd: build --base=/ordla/ # will run `yarn build` command
+          cmd: build-ci # will run `yarn build` command
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
