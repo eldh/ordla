@@ -11,13 +11,15 @@ import { Keyboard } from "./Keyboard";
 import { SummaryModal } from "./SummaryModal";
 import { Tries } from "./Tries";
 import { usePersistedState } from "./usePersistedState";
+import { useTimer } from "./useTimer";
 import { useViewportHeight } from "./useViewportHeight";
 import { words } from "./words";
 
 export function App() {
+  const [, endOfDay] = useTimer(10000);
   const word = useMemo(() => {
-    return getWordForToday();
-  }, []);
+    return getWordForDay(endOfDay);
+  }, [endOfDay]);
   const [tries, setTries] = usePersistedState<string[]>("tries_" + word, []);
   const [currentTry, setCurrentTry] = useState("");
   const [warning, setWarning] = useState(false);
@@ -47,7 +49,9 @@ export function App() {
       setShowModal(true);
     }
   }, [hasWon, hasLost]);
-
+  useEffect(() => {
+    setShowModal(false);
+  }, [word]);
   const handlePress = useCallback(
     (key: string) => {
       if (key === "Backspace") {
@@ -98,10 +102,6 @@ function Warning({ className }: { className: string }) {
       Ordet finns inte med i ordlistan.
     </div>
   );
-}
-
-function getWordForToday() {
-  return getWordForDay(new Date());
 }
 
 // Pick a start date

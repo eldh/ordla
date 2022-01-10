@@ -1,6 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import { Fade } from "./Fade";
 import { usePersistedState } from "./usePersistedState";
+import { useTimer } from "./useTimer";
 
 export function SummaryModal({
   className,
@@ -119,11 +120,8 @@ function Bar(props: { number: number; wins: number; maxWins: number }) {
 }
 
 function Next() {
-  const now = useTimer();
+  const [now, endOfDay] = useTimer();
 
-  const endOfDay = new Date(
-    new Date(now.valueOf()).setUTCHours(23, 59, 59, 999)
-  );
   const hours = endOfDay.getUTCHours() - now.getUTCHours();
   const minutes = endOfDay.getUTCMinutes() - now.getUTCMinutes();
   const seconds = endOfDay.getUTCSeconds() - now.getUTCSeconds();
@@ -221,17 +219,4 @@ function monthStr(m: number) {
     "november",
     "december",
   ][m];
-}
-
-function useTimer() {
-  const [now, setNow] = useState(new Date());
-  useEffect(() => {
-    const v = setInterval(() => {
-      setNow(new Date());
-    }, 1000);
-    return () => {
-      clearInterval(v);
-    };
-  }, []);
-  return now;
 }
