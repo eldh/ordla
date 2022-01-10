@@ -56,6 +56,7 @@ body {
 * {
   box-sizing: border-box;
   user-select: none;
+  -webkit-user-select: none;
   outline: none !important;
 }
 
@@ -68,6 +69,16 @@ body {
   align-items: flex-start;
   align-content: flex-start;
   flex-shrink: 1;
+}
+
+a,
+a:visited {
+  color: #fff;
+  transition: all 100ms ease-in-out;
+}
+
+a:hover {
+  opacity: 0.8;
 }
 
 h2 {
@@ -109,6 +120,7 @@ h3 {
   gap: 36px;
 }
 button {
+  position: relative;
   appearance: none;
   border: none;
   box-shadow: 0 2px 4px var(--shadow-mid),
@@ -188,6 +200,10 @@ p {
 .fade-in {
   opacity: 1;
   pointer-events: all;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 .modal {
@@ -312,10 +328,39 @@ p {
     --shadow-l: 0 5px 50px 25px rgba(0 0 0 / 0.2);
     --shadow-modal: 0 5px 15px rgba(0 0 0 / 0.3);
   }
+
   button {
     font-weight: 600;
   }
+
   .letter {
     font-weight: 700;
+  }
+}
+.key__pressed {
+  display: none;
+}
+@media (pointer: coarse) {
+  .key__pressed {
+    display: flex;
+    pointer-events: none;
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%) scale(1.8, 1.8);
+    appearance: none;
+    border: none;
+    box-shadow: 0 2px 4px var(--shadow-mid),
+      0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 -1px 0 rgba(0, 0, 0, 0.2) inset;
+    color: var(--btn-text);
+    font-size: 18px;
+    font-weight: 500;
+    background: var(--btn-bg);
+    border-radius: 6px;
+    padding: 6px;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (pointer: coarse) {
   }
 }

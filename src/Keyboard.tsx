@@ -1,4 +1,4 @@
-import { useEffect } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 
 export function Keyboard(props: {
   onPress: (key: string) => void;
@@ -48,6 +48,7 @@ export function Key(props: {
   word: string;
 }) {
   const { key_, onPress, tries, word } = props;
+  const [pressed, setPressed] = useState(false);
   const hit = tries.some(
     (t) => t.indexOf(key_) > -1 && t.indexOf(key_) === word.indexOf(key_)
   );
@@ -56,15 +57,51 @@ export function Key(props: {
     !hit && word.indexOf(key_) > -1 && tries.some((t) => t.indexOf(key_) > -1);
   const miss =
     word.indexOf(key_) === -1 && tries.some((t) => t.indexOf(key_) > -1);
-
+  const key =
+    key_ === "Backspace" ? (
+      <span
+        style={{
+          fontFamily: "monospace",
+          fontSize: "1.5rem",
+          lineHeight: "1.375rem",
+        }}
+      >
+        {"←"}
+      </span>
+    ) : key_ === "Enter" ? (
+      <span style={{ textTransform: "capitalize" }}>{"Enter"}</span>
+    ) : (
+      key_
+    );
   return (
     <button
-      className="keyboard__key center"
-      onTouchStart={(e) => {
+      className={
+        "keyboard__key center" + pressed ? " keyboard__key--pressed" : ""
+      }
+      onPointerDown={(e) => {
         onPress(key_);
         prevent(e);
+        setPressed(true);
       }}
-      onTouchEnd={prevent}
+      onPointerUp={(e) => {
+        prevent(e);
+        setPressed(false);
+      }}
+      onPointerLeave={(e) => {
+        setPressed(false);
+      }}
+      onPointerMove={(e) => {
+        setPressed(false);
+      }}
+      // onTouchStart={(e) => {
+      //   onPress(key_);
+      //   prevent(e);
+      //   setPressed(true);
+      // }}
+      // onTouchEnd={(e) => {
+      //   prevent(e);
+      //   setPressed(false);
+      // }}
       style={{
         width: ["Enter", "Backspace"].includes(key_) ? "82px" : "38px",
         height: "38px",
@@ -79,21 +116,8 @@ export function Key(props: {
           : "var(--btn-bg)",
       }}
     >
-      {key_ === "Backspace" ? (
-        <span
-          style={{
-            fontFamily: "monospace",
-            fontSize: "1.5rem",
-            lineHeight: "1.375rem",
-          }}
-        >
-          {"←"}
-        </span>
-      ) : key_ === "Enter" ? (
-        <span style={{ textTransform: "capitalize" }}>{"Enter"}</span>
-      ) : (
-        key_
-      )}
+      {pressed ? <div className="key__pressed">{key}</div> : null}
+      {key}
     </button>
   );
 }

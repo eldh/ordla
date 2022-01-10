@@ -25,11 +25,22 @@ export function SummaryModal({
   const maxWins = Math.max(...guessDistribution);
   return (
     <>
-      <div className={"modal center gap-l " + className}>
+      <div className={"modal center gap-m " + className}>
         <div role="button" tabIndex={0} onClick={onClose} className="close-btn">
           ⨯
         </div>
         <h3>Statistik</h3>
+        <p>
+          Dagens ord:{" "}
+          <a
+            href={`https://sv.wiktionary.org/wiki/${word}`}
+            className="capitalize"
+            target="_new"
+            rel="noreferrer noopener"
+          >
+            <b>{word}</b>
+          </a>
+        </p>
         <div className="row gap-m center">
           <Stat number={Object.keys(results).length} label="Spelade" />
           <Stat
@@ -39,7 +50,7 @@ export function SummaryModal({
         </div>
         <div className="gap-m center grow">
           <div style={{ fontSize: "1rem", fontWeight: "600" }}>Gissningar</div>
-          <div className="gap-m grow">
+          <div className="gap-s grow">
             {[1, 2, 3, 4, 5, 6].map((i) => (
               <Bar
                 number={i}
@@ -86,7 +97,7 @@ function Bar(props: { number: number; wins: number; maxWins: number }) {
         style={{
           fontWeight: "900",
           fontSize: "0.875rem",
-          width: 100 + "%",
+          width: "100%",
         }}
       >
         <div

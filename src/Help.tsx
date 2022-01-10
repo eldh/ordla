@@ -18,10 +18,7 @@ export function Help({}: {}) {
       <Fade show={help}>
         {(className) => (
           <>
-            <div
-              className={"modal gap-xl " + className}
-              style={{ width: "calc(100% - 24px)" }}
-            >
+            <div className={"modal gap-xl " + className}>
               <div
                 role="button"
                 onClick={() => setHelp(false)}
