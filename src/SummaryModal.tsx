@@ -162,7 +162,7 @@ function Share({ tries, word }: { word: string; tries: string[] }) {
     text: `Ordla, ${new Date().getDate()} ${monthStr(new Date().getMonth())}:
 
 ${resultsString}
-  `,
+`,
     title: "Ordla",
   };
 
