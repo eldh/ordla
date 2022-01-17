@@ -8,6 +8,7 @@ import {
 import { Fade } from "./Fade";
 import { Help } from "./Help";
 import { Keyboard } from "./Keyboard";
+import { ResultsLink } from "./ResultsLink";
 import { SummaryModal } from "./SummaryModal";
 import { Tries } from "./Tries";
 import { usePersistedState } from "./usePersistedState";
@@ -91,7 +92,11 @@ export function App() {
       </Fade>
       <h2>Ordla</h2>
       <Tries word={word} tries={tries} currentTry={currentTry} />
-      <Keyboard word={word} tries={tries} onPress={handlePress} />
+      {hasWon || hasLost ? (
+        <ResultsLink onPress={() => setShowModal(true)} />
+      ) : (
+        <Keyboard word={word} tries={tries} onPress={handlePress} />
+      )}
     </div>
   );
 }

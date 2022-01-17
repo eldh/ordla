@@ -136,6 +136,12 @@ button {
 button:active {
   opacity: 0.8;
 }
+.btn-l {
+  padding: 18px 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
 
 p {
   font-size: 1rem;
@@ -192,6 +198,13 @@ p {
     0 -1px 0 rgba(0, 0, 0, 0.4) inset;
 }
 
+.results-link {
+  flex-shrink: 0;
+  flex-grow: 0;
+  margin: auto;
+  /* Same height as keyboard */
+  min-height: 138px;
+}
 .fade {
   opacity: 0;
   transition: all 150ms ease-in;

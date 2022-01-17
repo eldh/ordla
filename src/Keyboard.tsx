@@ -93,15 +93,6 @@ export function Key(props: {
       onPointerMove={(e) => {
         setPressed(false);
       }}
-      // onTouchStart={(e) => {
-      //   onPress(key_);
-      //   prevent(e);
-      //   setPressed(true);
-      // }}
-      // onTouchEnd={(e) => {
-      //   prevent(e);
-      //   setPressed(false);
-      // }}
       style={{
         width: ["Enter", "Backspace"].includes(key_) ? "82px" : "38px",
         height: "38px",
