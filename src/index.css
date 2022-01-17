@@ -354,6 +354,10 @@ p {
   display: none;
 }
 @media (pointer: coarse) {
+  .keyboard__key {
+    font-size: 18px;
+    font-weight: 600;
+  }
   .key__pressed {
     display: flex;
     pointer-events: none;
@@ -366,8 +370,8 @@ p {
     box-shadow: 0 2px 4px var(--shadow-mid),
       0 1px 0 rgba(255, 255, 255, 0.15) inset, 0 -1px 0 rgba(0, 0, 0, 0.2) inset;
     color: var(--btn-text);
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 600;
     background: var(--btn-bg);
     border-radius: 6px;
     padding: 6px;

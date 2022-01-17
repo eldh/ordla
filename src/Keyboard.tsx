@@ -76,7 +76,7 @@ export function Key(props: {
   return (
     <button
       className={
-        "keyboard__key center" + pressed ? " keyboard__key--pressed" : ""
+        "keyboard__key center" + (pressed ? " keyboard__key--pressed" : "")
       }
       onPointerDown={(e) => {
         onPress(key_);
