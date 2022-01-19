@@ -9,8 +9,12 @@ export function Keyboard(props: {
 
   useEffect(() => {
     const listener = (e: KeyboardEvent) => {
-      if (flatKeys.includes(e.key) && !e.metaKey && !e.ctrlKey) {
-        onPress(e.key);
+      let key=e.key
+      if (key !== "Backspace" && key !== "Enter") {
+        key=key.toLowerCase()
+      }
+      if (flatKeys.includes(key) && !e.metaKey && !e.ctrlKey) {
+        onPress(key);
         e.preventDefault();
         e.stopPropagation();
       }
