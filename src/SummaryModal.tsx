@@ -33,23 +33,13 @@ export function SummaryModal({
         <h3>Statistik</h3>
         <p>
           Dagens ord:{" "}
-          <b>{word}</b>
-        </p>
-        <p>
-          <a
-            href={`https://sv.wiktionary.org/wiki/${word}`}
-            target="_new"
-            rel="noreferrer noopener"
-          >
-            wiktionary.org
-          </a>
-          <br/>
           <a
             href={`https://svenska.se/tre/?sok=${word}`}
+            className="capitalize"
             target="_new"
             rel="noreferrer noopener"
           >
-            svenska.se
+            <b>{word}</b>
           </a>
         </p>
         <div className="row gap-m center">
