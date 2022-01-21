@@ -49,8 +49,9 @@ export function Key(props: {
 }) {
   const { key_, onPress, tries, word } = props;
   const [pressed, setPressed] = useState(false);
-  const hit = tries.some(
-    (t) => t.indexOf(key_) > -1 && t.indexOf(key_) === word.indexOf(key_)
+
+  const hit = tries.some((try_) =>
+    try_.split("").some((letter, i) => letter === key_ && letter === word[i])
   );
 
   const almost =
