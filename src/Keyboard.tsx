@@ -9,9 +9,9 @@ export function Keyboard(props: {
 
   useEffect(() => {
     const listener = (e: KeyboardEvent) => {
-      let key=e.key
+      let key = e.key;
       if (key !== "Backspace" && key !== "Enter") {
-        key=key.toLowerCase()
+        key = key.toLowerCase();
       }
       if (flatKeys.includes(key) && !e.metaKey && !e.ctrlKey) {
         onPress(key);
