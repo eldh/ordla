@@ -34,7 +34,7 @@ export function SummaryModal({
         <p>
           Dagens ord:{" "}
           <a
-            href={`https://sv.wiktionary.org/wiki/${word}`}
+            href={`https://svenska.se/tre/?sok=${word}`}
             className="capitalize"
             target="_new"
             rel="noreferrer noopener"
