@@ -1,5 +1,5 @@
 export function Square(props: {
-  letter: string;
+  letter?: string;
   index: number;
   guess?: string;
   isCurrentTry: boolean;
@@ -7,16 +7,21 @@ export function Square(props: {
 }) {
   const { index, letter, word, isCurrentTry, guess } = props;
   const hit = !isCurrentTry && word[index] === letter;
+  const letterOccurrances = word.split("").filter((l) => l === letter).length;
+  const letterHitsElsewhere =
+    (!hit &&
+      guess?.split("").filter((l2, i) => word[i] === l2 && l2 === letter)
+        .length) ||
+    0;
 
-  const letterIsHitElsewhere =
+  const almost =
+    letter &&
     !isCurrentTry &&
     !hit &&
-    guess
-      ?.split("")
-      .filter((l2, i) => word[i] === l2)
-      .includes(letter);
-  const almost =
-    !letterIsHitElsewhere && !isCurrentTry && !hit && word.indexOf(letter) > -1;
+    (letterOccurrances > 1
+      ? letterHitsElsewhere < letterOccurrances
+      : letterHitsElsewhere === 0) &&
+    word.indexOf(letter) > -1;
   return (
     <div
       className="center letter"
