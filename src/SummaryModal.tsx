@@ -207,7 +207,7 @@ ${resultsString}
 function monthStr(m: number) {
   return [
     "januari",
-    "febriari",
+    "februari",
     "mars",
     "april",
     "maj",
