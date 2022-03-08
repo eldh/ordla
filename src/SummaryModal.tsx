@@ -186,7 +186,7 @@ ${resultsString}
         )}
       </Fade>
       <button
-        className="share-btn"
+        className="share-ordla-result"
         onClick={() => {
           if (navigator.share) {
             navigator.share(data);
