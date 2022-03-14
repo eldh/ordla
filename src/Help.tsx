@@ -50,7 +50,7 @@ function Example({ word, guess }: { word: string; guess: string }) {
   return (
     <div className="row gap-s">
       {guess.split("").map((l, i) => (
-        <Square word={word} letter={l} key={l} index={i} isCurrentTry={false} />
+        <Square word={word} letter={l} key={l} index={i} isCurrentTry={false} tries={[]} />
       ))}
     </div>
   );

@@ -4,6 +4,7 @@
 
   --letter-bg: rgba(37 49 56);
   --letter-bg--hit: rgba(0 178 0);
+  --letter-bg--warn: rgba(178 0 0);
   --bar-color: rgba(0 150 0);
   --letter-bg--almost: rgb(161, 121, 10);
   --letter-text: rgba(255 255 255 / 0.9);

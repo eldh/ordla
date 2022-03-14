@@ -24,6 +24,7 @@ export function Tries(props: {
                 word={word}
                 letter={letter}
                 key={"" + letter + i + j}
+                tries={[...tries]}
               />
             );
           })}

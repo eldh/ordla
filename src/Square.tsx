@@ -4,8 +4,9 @@ export function Square(props: {
   guess?: string;
   isCurrentTry: boolean;
   word: string;
+  tries: string[];
 }) {
-  const { index, letter, word, isCurrentTry, guess } = props;
+  const { index, letter, word, isCurrentTry, guess, tries } = props;
   const hit = !isCurrentTry && word[index] === letter;
   const letterOccurrances = word.split("").filter((l) => l === letter).length;
   const letterHitsElsewhere =
@@ -52,6 +53,13 @@ export function Square(props: {
     isExtranousAlmost = indicesOfOccurrencesInGuess[index] !== 1;
   }
 
+  // warn if the letter is already known to not exist
+  const warn =
+      isCurrentTry
+      && letter
+      && word.indexOf(letter) === -1
+      && tries.some((t) => t.indexOf(letter) > -1);
+
   return (
     <div
       className="center letter"
@@ -68,6 +76,8 @@ export function Square(props: {
           ? "var(--letter-bg--hit)"
           : almost && !isExtranousAlmost
           ? "var(--letter-bg--almost)"
+          : warn
+          ? "var(--letter-bg--warn)"
           : "var(--letter-bg)",
       }}
     >
